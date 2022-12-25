@@ -27,6 +27,18 @@ export function showUploadFile(multiple = false, accept = "") {
     input.style.opacity = "0";
     document.body.append(input);
     input.click();
+    Swal.fire({
+      title: "批量上传",
+      text: "请选择文件",
+      icon: "info",
+      showCancelButton: true,
+      cancelButtonText: "取消",
+    }).then((result) => {
+      if (result.isDismissed) {
+        ok([]);
+      }
+    });
+    Swal.showLoading(null);
 
     input.addEventListener("change", async () => {
       input.remove();

@@ -1,8 +1,10 @@
+import { unsafeWindow } from "$";
 import GUI from "lil-gui";
 import Swal from "sweetalert2";
 import {
   addFunctionButton,
   getSetting,
+  settings,
   showUploadFile,
   sleep,
   startLoading,
@@ -98,6 +100,11 @@ export default async function (gui: GUI) {
           type: 1,
         });
       }
+      Swal.fire(
+        "批量导入完成",
+        `已成功导入${fileList.length}个脚本文件`,
+        "success"
+      );
     },
     "批量上传脚本"
   );
@@ -115,9 +122,29 @@ export default async function (gui: GUI) {
           type: 6,
         });
       }
+      Swal.fire(
+        "批量导入完成",
+        `已成功导入${fileList.length}个音频文件`,
+        "success"
+      );
     },
     "批量上传音频"
   );
   const state = getCore().state;
   GraphicSettings(getCore, state, f, false);
+  if (settings["flag.hackMode"]) {
+    Object.assign(unsafeWindow, {
+      hackContributorPermission() {
+        getCore().permissionController.addCollaborator(
+          getCore().state.box3.state.secret.userId,
+          "contributor"
+        );
+        Swal.fire(
+          "Hack Permission",
+          "Got contributor permission (depend on owner's config for contributor group)",
+          "success"
+        );
+      },
+    });
+  }
 }
