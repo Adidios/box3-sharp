@@ -15,11 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-        cache: 'npm'
-    - run: npm audit fix --force
-    - run: npm i
-    - run: npm run build
+    - name: Setup Yarn
+      # You may pin to the exact commit or the version.
+      # uses: mskelton/setup-yarn@c34a9f0a8ec681943a2348edab381a9cc02fa3f4
+      uses: mskelton/setup-yarn@v1.3.0
+    - run: yarn
+    - run: yarn build
