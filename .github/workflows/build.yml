@@ -18,5 +18,7 @@ jobs:
       uses: mskelton/setup-yarn@v1.3.0
     - run: yarn
     - run: yarn build
-    - name: action-push
-      uses: ludeeus/action-push@0.0.1
+    - name: Push changes
+      uses: actions-go/push@v1
+      with:
+        commit-message: auto build
