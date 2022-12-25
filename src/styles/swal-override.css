@@ -1,0 +1,7 @@
+.swal2-popup {
+  font-size: unset !important;
+}
+.swal2-backdrop-show {
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.5) !important;
+}

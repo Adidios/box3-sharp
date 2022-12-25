@@ -1,0 +1,29 @@
+.container-window {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  z-index: 999;
+}
+.container-window .handle {
+  cursor: move;
+  position: relative;
+  margin-left: auto;
+  width: calc(100% - 80px);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: opacity 0.25s;
+  font-size: 4px;
+}
+.container-window .handle:hover {
+  opacity: 1;
+}
+._2x0RglLpha6lx9vdRMkP5r {
+  user-select: text !important;
+}

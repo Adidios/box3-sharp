@@ -1,0 +1,97 @@
+@import "@sweetalert2/themes/borderless/borderless.css";
+.lil-gui {
+  --background-color: transparent;
+  --text-color: rgba(255, 255, 255, 0.8);
+  --title-background-color: rgba(0, 0, 0, 0.3);
+  --title-text-color: rgba(255, 255, 255, 0.9);
+  --widget-color: rgba(100, 100, 100, 0.1);
+  --hover-color: rgba(100, 100, 100, 0.2);
+  --focus-color: rgba(255, 255, 255, 0.2);
+  --number-color: var(--primary-color);
+  --string-color: #ffab00;
+  --font-size: 12px;
+  --input-font-size: 10px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  --font-family-mono: Menlo, Monaco, Consolas, "Droid Sans Mono", monospace;
+  --padding: 4px;
+  --spacing: 4px;
+  --widget-height: 20px;
+  --name-width: 45%;
+  --slider-knob-width: 2px;
+  --slider-input-width: 27%;
+  --color-input-width: 27%;
+  --slider-input-min-width: 45px;
+  --color-input-min-width: 45px;
+  --folder-indent: 5px;
+  --widget-padding: 0 0 0 3px;
+  --widget-border-radius: var(--border-radius);
+  --checkbox-size: calc(0.75 * var(--widget-height));
+  --scrollbar-width: 2px;
+  max-height: 70vh;
+}
+.lil-gui .name {
+  user-select: none !important;
+}
+.lil-gui * {
+  transition: background-color 0.25s;
+}
+.lil-gui.root {
+  transform: translateY(-25px);
+  border: 1px solid transparent;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(var(--blur));
+  filter: saturate(50%);
+  transition: border-color 0.5s, box-shadow 0.5s, filter 0.25s;
+
+  box-shadow: 0 0 0px var(--primary-color);
+  border-radius: var(--border-radius);
+}
+.lil-gui.root:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+  filter: none;
+}
+.lil-gui input[type="checkbox"]:checked:before {
+  color: var(--primary-color);
+}
+
+option {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  border-left: 1px solid transparent;
+}
+option:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  border-left: 1px solid #2196f3;
+}
+.lil-gui.closed > .children {
+  transform: translateY(-20px);
+  filter: grayscale(100%);
+  opacity: 0;
+}
+.lil-gui.transition > .children {
+  transition-duration: 250ms;
+  transition-property: height, opacity, transform, filter;
+  transition-timing-function: cubic-bezier(0.2, 0.6, 0.35, 1);
+  overflow: hidden;
+  pointer-events: none;
+}
+.lil-gui input {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.lil-gui .controller.number:hover .fill {
+  background-color: var(--number-color);
+  box-shadow: 0 0 5px var(--number-color);
+}
+.lil-gui .controller.number:hover input {
+  text-shadow: 0 0 5px var(--number-color);
+}
+::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.title {
+  user-select: none;
+}
