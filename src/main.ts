@@ -51,25 +51,23 @@ function main() {
   containerWindowElement.append(gui.domElement);
   gui.title(`Box3# v${GM_info.script.version} by AlanBestHacker`);
   console.log(GM_info);
-  if (GM_info.scriptWillUpdate) {
-    addFunctionButton(
-      gui,
-      async () => {
-        GM_openInTab(
-          GM_info.scriptUpdateURL ||
-            "https://greasyfork.org/zh-CN/scripts/456978-box3-sharp"
-        );
-      },
-      "🎉更新到最新版本"
-    );
-  }
+  addFunctionButton(
+    gui,
+    async () => {
+      GM_openInTab(
+        GM_info.script.homepageURL ||
+          "https://greasyfork.org/zh-CN/scripts/456978-box3-sharp"
+      );
+    },
+    "手动更新"
+  );
   async function matchModule() {
     const matches: { [index: string]: string } = {
       "box3.fun": "Box3Fun",
       "/me/content($|.+map)": "MapContent",
       "/p/": "Play",
       "/e/": "Editor",
-      "box3.codemao.cn/": "Home",
+      "box3.codemao.cn/($|.filter.+)": "Home",
     };
     for (let r of Object.keys(matches)) {
       if (new RegExp(r).test(location.href)) {

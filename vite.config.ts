@@ -14,8 +14,7 @@ export default defineConfig({
         license: "GPL-3.0",
         description: "Box3增强插件",
         author: "AlanBestHacker",
-        updateURL:
-          "https://greasyfork.org/scripts/456978-box3-sharp/code/box3-sharp.user.js",
+        homepageURL: "https://greasyfork.org/scripts/456978-box3-sharp/",
         name: "box3-sharp",
       },
       build: {
