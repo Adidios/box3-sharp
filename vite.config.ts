@@ -10,7 +10,7 @@ export default defineConfig({
         icon: "https://box3.fun/favicon.ico",
         namespace: "box3.codemao.cn",
         match: ["https://box3.codemao.cn/*", "https://box3.fun/*"],
-        version: "1.1.3",
+        version: "1.2.0",
         license: "GPL-3.0",
         description: "Box3增强插件",
         author: "AlanBestHacker",
