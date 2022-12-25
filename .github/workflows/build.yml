@@ -13,7 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
     - name: Setup Yarn
       uses: mskelton/setup-yarn@v1.3.0
     - run: yarn
@@ -22,3 +21,4 @@ jobs:
       uses: actions-go/push@v1
       with:
         commit-message: auto build
+        force: true
