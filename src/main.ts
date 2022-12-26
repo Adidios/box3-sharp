@@ -30,8 +30,8 @@ function updateWindowPosition() {
 updateWindowPosition();
 addEventListener("mousemove", ({ movementX, movementY }) => {
   if (isPlaneDragging) {
-    windowPos[0] += movementX;
-    windowPos[1] += movementY;
+    windowPos[0] += movementX * (1 / devicePixelRatio);
+    windowPos[1] += movementY * (1 / devicePixelRatio);
     updateWindowPosition();
   }
 });
